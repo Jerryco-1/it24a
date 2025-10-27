@@ -8,12 +8,12 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
 </head>
-</body>
+<body>
     <h1>Line chart</h1>
     <div>
         <canvas id="linechart"></canvas>
     </div>
-    
+ 
 <script>
 class LineChart{
     constructor(canvasId,dataUrl){
@@ -70,7 +70,8 @@ class LineChart{
 }
 document.addEventListener("DOMContentLoaded", ()=>{
     const chart = new LineChart("linechart","linedata.json");
-    charts.init();
+    chart.init();
 })
 </script>
+</body>
 </html>
