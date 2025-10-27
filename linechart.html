@@ -23,7 +23,7 @@ class LineChart{
 
     }
     renderChart(data){
-        const ctx = document.getElementById(this.canvasId).getContex("2d")
+        const ctx = document.getElementById(this.canvasId).getContext("2d")
 
         this.chart = new Chart (ctx,{
             type:"line", 
@@ -32,7 +32,7 @@ class LineChart{
                 datasets:[{
                     label:"Monthly Data",
                     data:data.values,
-                    borderwidth:1
+                    borderWidth:1
                 }]
             },
             options:{
@@ -48,8 +48,8 @@ class LineChart{
 
     async fetchData(){
         try{
-            const response = await fetch(data.dataUrl);
-            if(!reponse.ok) throw  new Error (`Failed to load data: ${response.statusText}`)
+            const response = await fetch(this.dataUrl);
+            if(!response.ok) throw  new Error (`Failed to load data: ${response.statusText}`)
 
             const data = await response.json();
             return data;
@@ -69,7 +69,7 @@ class LineChart{
     }
 }
 document.addEventListener("DOMContentLoaded", ()=>{
-    const chart = LineChart("linecharts","linedata.json");
+    const chart = new LineChart("linechart","linedata.json");
     charts.init();
 })
 </script>
